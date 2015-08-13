@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>	 
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+			
+	<style>
+
+		@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+		html {
+		  border-top: 0px solid #33CCFF;
+		  background: #33CCFF;
+		  color: #33CCFF;
+		}
+		body {
+			background-color: #33CCFF;
+			;
+		}
+
+		html, body {
+		  margin: 0;
+		  padding: 0;
+		  font-family: 'Open Sans';
+		}
+
+		h1 {
+		  color: #FFFF00;
+		  text-align: center;
+		  font-weight: 300;
+		}
+
+		#slider {
+		  position: relative;
+		  overflow: hidden;
+		  margin: 20px auto 0 auto;
+		  border-radius: 4px;
+		}
+
+		#slider ul {
+		  position: relative;
+		  margin: 0;
+		  padding: 0;
+		  height: 200px;
+		  list-style: none;
+		}
+
+		#slider ul li {
+		  position: relative;
+		  display: block;
+		  float: left;
+		  margin: 0;
+		  padding: 0;
+		  width: 1000px;
+		  height: 500px;
+		  background: #FFFF00;
+		  text-align: center;
+		  line-height: 300px;
+		}
+
+		a.control_prev, a.control_next {
+		  position: absolute;
+		  top: 40%;
+		  z-index: 999;
+		  display: block;
+		  padding: 4% 3%;
+		  width: auto;
+		  height: auto;
+		  background: #2a2a2a;
+		  color: #fff;
+		  text-decoration: none;
+		  font-weight: 600;
+		  font-size: 18px;
+		  opacity: 0.8;
+		  cursor: pointer;
+		}
+
+		a.control_prev:hover, a.control_next:hover {
+		  opacity: 1;
+		  -webkit-transition: all 0.2s ease;
+		}
+
+		a.control_prev {
+		  border-radius: 0 2px 2px 0;
+		}
+
+		a.control_next {
+		  right: 0;
+		  border-radius: 2px 0 0 2px;
+		}
+
+		.slider_option {
+		  position: relative;
+		  margin: 10px auto;
+		  width: 160px;
+		  font-size: 18px;
+		}
+
+		.Answer {
+			font-family: Arabic Typeseting;
+			font-size: 16pt;
+			font-color: solid black;
+			text-align: center;
+		}
+
+		.hello {
+				position: center;
+				width: 25px;
+				height: 20px;
+				padding: 150px 0px -150px -20px;
+		}
+		.logos {
+    margin: 9px 0px 0px 0px; 
+}
+	
+		h3 {
+			color:white;
+			font-size: 12px		
+		}
+
+	</style>
+		<script> 
+			jQuery(document).ready(function ($) {
+
+			  $('#checkbox').change(function(){
+			    setInterval(function () {
+			        moveRight();
+			    }, 3000);
+			  });
+			  
+				var slideCount = $('#slider ul li').length;
+				var slideWidth = $('#slider ul li').width();
+				var slideHeight = $('#slider ul li').height();
+				var sliderUlWidth = slideCount * slideWidth;
+				
+				$('#slider').css({ width: slideWidth, height: slideHeight });
+				
+				$('#slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
+				
+			    $('#slider ul li:last-child').prependTo('#slider ul');
+
+			    function moveLeft() {
+			        $('#slider ul').animate({
+			            left: + slideWidth
+			        }, 200, function () {
+			            $('#slider ul li:last-child').prependTo('#slider ul');
+			            $('#slider ul').css('left', '');
+			        });
+			    };
+
+			    function moveRight() {
+			        $('#slider ul').animate({
+			            left: - slideWidth
+			        }, 200, function () {
+			            $('#slider ul li:first-child').appendTo('#slider ul');
+			            $('#slider ul').css('left', '');
+			        });
+			    };
+
+			    $('a.control_prev').click(function () {
+			        moveLeft();
+			    });
+
+			    $('a.control_next').click(function () {
+			        moveRight();
+			    });
+
+			});    
+
+	</script>
+</head>
+<body>
+
+			
+		<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Home</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About Us<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="Serve.html#">Who Do We Serve?</a></li>
+            <li><a href="Provide.html">What Services Do We Provide?</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="Resources1.html">Partnerships</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left" role="search" style="position:absolute;left:590px;">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default"><img src="images/web_search.jpg" class="hello"></button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="Contact.html">Contact Us</li></a>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<h1>Who Do We Serve?</h1>
+<div>
+	<p class="Answer">
+		Our non-profit organization has devoted its resources, efficiency and cooperation to undocumented students with a Hispanic/Latino background that come from low income families. We aim to ensure that these less fortunate students enroll in a high quality, low-cost four year higher institution, where they will be able obtain a college education, apply their skills in the American workforce and give back to their communities. We serve Hispanics/Latinos because they are attacked by nativists and have the lowest percentages of acquired occupations in high demanding jobs. Those who are hindered from continuing their education often turn to vices or instead low paying jobs that continue the cycle of being part of a low-income family. We want to break that cycle. We want to give those are willing to invest their time, dreams, and hope to contribute to society the same opportunity as everyone else. People migrate in search of a better life, not to remain in the same situation. 
+	</p class "Answer">
+</div>
+<div id="slider">
+  <a href="#" class="control_next">>></a>
+  <a href="#" class="control_prev"></a>
+  <ul>
+    <li><img src="images\happyx.jpg" width="667" height="500"></li>
+    <li><img src="http://diverseeducation.com/wp-content/uploads/2013/02/020813_Calif_Latinos.jpg" width="540" height="500"></li>
+    <li><img src="http://www.whittier.edu/sites/default/files/media/latinogradWEB_000.jpg" width="880" height="600"></li>
+    <li><img src="https://s-media-cache-ak0.pinimg.com/736x/4f/b8/c3/4fb8c339e19f9cecfb5208952f4e2d4d.jpg" width="740" height="500"></li>
+  </ul>  
+</div>
+
+<div class="slider_option">
+  <input type="checkbox" id="checkbox">
+  <label for="checkbox">Autoplay Slider</label>
+</div> 
+<div>
+
+<footer>
+        <div class="container-fluid" style="background-color:gray;" line-height="20px">
+            <div class="container-fluid">
+        <div class="row">
+        <div class="col-xs-6" id="trademark">
+            <h3>&#169 Empowering the Voices of the Future</h3>
+        </div>
+        <div>
+            <div class="logos" align="right" id="social" style="float:right;">
+
+                <a href="https://www.facebook.com"><img src="images\facebook.png" alt="facebook" style="width:43px;height:30px;"></a>
+                <a href="https://instagram.com"><img src="images\instagram.png" alt="instagram" style="width:43px;height:30px;">
+                <a href="https://www.twitter.com"><img src="images\twitter.png" alt="twitter" style="width:43px;height:30px;"></a>
+                <a href="https://www.snapchat.com"><img src="images\snapchat.png" alt="snapchat"style="width:43px;height:30px;"></a>
+                    
+
+
+            </div>
+        </div>        
+</footer>
+
+</body>
+</html>
